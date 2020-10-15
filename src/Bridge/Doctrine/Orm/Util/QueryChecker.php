@@ -120,7 +120,7 @@ final class QueryChecker
 
         foreach ($orderByParts as $orderBy) {
             foreach ($orderBy->getParts() as $part) {
-                if (false !== strpos($part, '.')) {
+                if (false !== strpos($part, '.') && false === strpos($part, '(')) {
                     [$alias] = explode('.', $part);
 
                     $orderByAliases[] = $alias;
